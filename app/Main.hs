@@ -1,6 +1,7 @@
 module Main (main) where
 
 import Graphics.Gloss
+import Graphics.Gloss.Juicy
 
 ------------------------
 -- Displayの設定
@@ -13,4 +14,6 @@ wnd :: Display
 wnd = InWindow "FROGGER" (wndW, wndH) (100, 100)
 
 main :: IO ()
-main = display wnd white(translate (-150) (-10) . scale 0.5 0.5 $ text "Hello Haskell")
+main = do
+ Just img <- loadJuicy "img\\frog.png"
+ display wnd white (scale 0.5 0.5 img)
