@@ -16,4 +16,4 @@ wnd = InWindow "FROGGER" (wndW, wndH) (100, 100)
 main :: IO ()
 main = do
  Just img <- loadJuicy "img\\frog.png"
- display wnd white (scale 0.5 0.5 img)
+ display wnd white (translate (0) (-200) . scale 0.1 0.1 $ img)
