@@ -13,7 +13,20 @@ wndH = 1024
 wnd :: Display
 wnd = InWindow "FROGGER" (wndW, wndH) (100, 100)
 
+
+data Int2 = Int2
+ {
+  x :: Int,
+  y :: Int
+ }
+initInt2 :: Int2
+initInt2 = Int2 0 0
+
 main :: IO ()
 main = do
- Just img <- loadJuicy "img\\frog.png"
- display wnd white (translate (0) (-200) . scale 0.1 0.1 $ img)
+ -- 何も実行しないときにエラーが出ないように
+ putStrLn "= = = Run frogger exe = = ="
+ 
+ -- イメージ読み込み
+ Just img <- loadJuicy "img\\frog32.png"
+ display wnd white (translate (0) (-200) img)
